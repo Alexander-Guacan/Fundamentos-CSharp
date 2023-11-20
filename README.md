@@ -308,3 +308,140 @@ enum DiasSemana { Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo }
  | Desplazamiento izquierdo | << | desplaza el operando izquierdo a la izquierda el número de bits definido por el operando derecho. |
  | Desplazamiento derecho | >> | desplaza el operando izquierdo a la derecha el número de bits definido por el operando derecho. |
  | Desplazamiento derecho sin signo | >>> | Disponible en C# 11 y posteriores, el >>> operador desplaza el operando izquierdo a la derecha el número de bits definido por su operando derecho. |
+
+### Control de flujo y estructuras de control
+
+#### Instrucciones de selección (Condicionales)
+
+ Permiten crear bifurcaciones a diferentes secciones de código, en función de una o varias condiciones especificadas.
+
+##### Instrucción **If**
+
+ Una instrucción if con una parte else selecciona una de las dos instrucciones que se ejecutarán en función del valor de una expresión booleana.
+
+````C#
+DisplayWeatherReport(15.0);  // Output: Cold.
+DisplayWeatherReport(24.0);  // Output: Perfect!
+
+void DisplayWeatherReport(double tempInCelsius)
+{
+    if (tempInCelsius < 20.0)
+    {
+        Console.WriteLine("Cold.");
+    }
+    else
+    {
+        Console.WriteLine("Perfect!");
+    }
+}
+````
+
+ Una instrucción if sin una parte else ejecuta el cuerpo solo si una expresión booleana se evalúa como true.
+
+````C#
+DisplayMeasurement(45);  // Output: The measurement value is 45
+DisplayMeasurement(-3);  // Output: Warning: not acceptable value! The measurement value is -3
+
+void DisplayMeasurement(double value)
+{
+    if (value < 0 || value > 100)
+    {
+        Console.Write("Warning: not acceptable value! ");
+    }
+
+    Console.WriteLine($"The measurement value is {value}");
+}
+````
+
+##### Instrucción **switch**
+
+ La instrucción switch selecciona una lista de instrucciones para ejecutarla en función de la coincidencia de un patrón con una expresión de coincidencia.
+
+````C#
+DisplayMeasurement(-4);  // Output: Measured value is -4; too low.
+DisplayMeasurement(5);  // Output: Measured value is 5.
+DisplayMeasurement(30);  // Output: Measured value is 30; too high.
+DisplayMeasurement(double.NaN);  // Output: Failed measurement.
+
+void DisplayMeasurement(double measurement)
+{
+    switch (measurement)
+    {
+        case < 0.0:
+            Console.WriteLine($"Measured value is {measurement}; too low.");
+            break;
+
+        case > 15.0:
+            Console.WriteLine($"Measured value is {measurement}; too high.");
+            break;
+
+        case double.NaN:
+            Console.WriteLine("Failed measurement.");
+            break;
+
+        default:
+            Console.WriteLine($"Measured value is {measurement}.");
+            break;
+    }
+}
+````
+
+#### Instrucción de iteración (Bucles)
+
+##### Instrucción **do**
+
+ La instrucción do ejecuta una instrucción o un bloque de instrucciones mientras que una expresión booleana especificada se evalúa como true. Como esa expresión se evalúa después de cada ejecución del bucle, un bucle do se ejecuta una o varias veces.
+
+````C#
+int n = 0;
+
+do {
+    Console.Write(n);
+    n++;
+} while (n < 5);
+
+// Output:
+// 01234
+````
+
+##### Instrucción **while**
+
+ La instrucción while ejecuta una instrucción o un bloque de instrucciones mientras que una expresión booleana especificada se evalúa como true. Como esa expresión se evalúa antes de cada ejecución del bucle, un bucle while se ejecuta cero o varias veces.
+
+````C#
+int n = 0;
+while (n < 5)
+{
+    Console.Write(n);
+    n++;
+}
+// Output:
+// 01234
+````
+
+##### Instrucción for
+
+ La instrucción for ejecuta una instrucción o un bloque de instrucciones mientras una expresión booleana especificada se evalúa como true. En el ejemplo siguiente se muestra la instrucción for
+
+````C#
+for (int i = 0; i < 3; i++) {
+    Console.Write(i);
+}
+// Output:
+// 012
+
+````
+
+##### Instrucción **foreach**
+
+ La instrucción foreach ejecuta una instrucción o un bloque de instrucciones para cada elemento de una instancia del tipo que implementa la interfaz System.Collections.IEnumerable o System.Collections.Generic.IEnumerable\<T>
+
+````C#
+var fibNumbers = new List<int> { 0, 1, 1, 2, 3, 5, 8, 13 };
+foreach (int element in fibNumbers) {
+    Console.Write($"{element} ");
+}
+// Output:
+// 0 1 1 2 3 5 8 13
+
+````
