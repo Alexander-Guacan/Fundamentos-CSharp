@@ -71,28 +71,22 @@ Console.WriteLine("Hello world!");
 
 namespace YourNamespace
 {
-    class YourClass
-    {
+    class YourClass {
     }
 
-    struct YourStruct
-    {
+    struct YourStruct {
     }
 
-    interface IYourInterface
-    {
+    interface IYourInterface {
     }
 
     delegate int YourDelegate();
 
-    enum YourEnum
-    {
+    enum YourEnum {
     }
 
-    namespace YourNestedNamespace
-    {
-        struct YourStruct
-        {
+    namespace YourNestedNamespace {
+        struct YourStruct {
         }
     }
 }
@@ -105,35 +99,27 @@ namespace YourNamespace
 using System;
 namespace YourNamespace
 {
-    class YourClass
-    {
+    class YourClass {
     }
 
-    struct YourStruct
-    {
+    struct YourStruct {
     }
 
-    interface IYourInterface
-    {
+    interface IYourInterface {
     }
 
     delegate int YourDelegate();
 
-    enum YourEnum
-    {
+    enum YourEnum {
     }
 
-    namespace YourNestedNamespace
-    {
-        struct YourStruct
-        {
+    namespace YourNestedNamespace {
+        struct YourStruct {
         }
     }
 
-    class Program
-    {
-        static void Main(string[] args)
-        {
+    class Program {
+        static void Main(string[] args) {
             //Your program starts here...
             Console.WriteLine("Hello world!");
         }
@@ -323,14 +309,10 @@ enum DiasSemana { Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo }
 DisplayWeatherReport(15.0);  // Output: Cold.
 DisplayWeatherReport(24.0);  // Output: Perfect!
 
-void DisplayWeatherReport(double tempInCelsius)
-{
-    if (tempInCelsius < 20.0)
-    {
+void DisplayWeatherReport(double tempInCelsius) {
+    if (tempInCelsius < 20.0) {
         Console.WriteLine("Cold.");
-    }
-    else
-    {
+    } else {
         Console.WriteLine("Perfect!");
     }
 }
@@ -342,10 +324,8 @@ void DisplayWeatherReport(double tempInCelsius)
 DisplayMeasurement(45);  // Output: The measurement value is 45
 DisplayMeasurement(-3);  // Output: Warning: not acceptable value! The measurement value is -3
 
-void DisplayMeasurement(double value)
-{
-    if (value < 0 || value > 100)
-    {
+void DisplayMeasurement(double value) {
+    if (value < 0 || value > 100) {
         Console.Write("Warning: not acceptable value! ");
     }
 
@@ -363,10 +343,8 @@ DisplayMeasurement(5);  // Output: Measured value is 5.
 DisplayMeasurement(30);  // Output: Measured value is 30; too high.
 DisplayMeasurement(double.NaN);  // Output: Failed measurement.
 
-void DisplayMeasurement(double measurement)
-{
-    switch (measurement)
-    {
+void DisplayMeasurement(double measurement) {
+    switch (measurement) {
         case < 0.0:
             Console.WriteLine($"Measured value is {measurement}; too low.");
             break;
@@ -410,8 +388,7 @@ do {
 
 ````C#
 int n = 0;
-while (n < 5)
-{
+while (n < 5) {
     Console.Write(n);
     n++;
 }
@@ -438,10 +415,195 @@ for (int i = 0; i < 3; i++) {
 
 ````C#
 var fibNumbers = new List<int> { 0, 1, 1, 2, 3, 5, 8, 13 };
+
 foreach (int element in fibNumbers) {
     Console.Write($"{element} ");
 }
 // Output:
 // 0 1 1 2 3 5 8 13
 
+````
+
+## Funciones y métodos
+
+Un método es un bloque de código que contiene una serie de instrucciones. Un programa hace que se ejecuten las instrucciones al llamar al método y especificando los argumentos de método necesarios. En C#, todas las instrucciones ejecutadas se realizan en el contexto de un método.
+
+### Declaración y llamada de funciones
+
+Los métodos se declaran en una clase, struct o interfaz especificando el nivel de acceso, como public o private, modificadores opcionales como abstract o sealed, el valor devuelto, el nombre del método y cualquier parámetro de método. Todas estas partes forman la firma del método.
+
+Los parámetros de método se encierran entre paréntesis y se separan por comas. Los paréntesis vacíos indican que el método no requiere parámetros.
+
+````C#
+abstract class Motorcycle {
+    // Anyone can call this.
+    public void StartEngine() {/* Method statements here */ }
+
+    // Only derived classes can call this.
+    protected void AddGas(int gallons) { /* Method statements here */ }
+
+    // Derived classes can override the base class implementation.
+    public virtual int Drive(int miles, int speed) { /* Method statements here */ return 1; }
+
+    // Derived classes must implement this.
+    public abstract double GetTopSpeed();
+}
+````
+
+### Parámetros y argumentos
+
+La definición del método especifica los nombres y tipos de todos los parámetros necesarios. Si el código de llamada llama al métodos, proporciona valores concretos denominados argumentos para cada parámetro. Los argumentos deben ser compatibles con el tipo de parámetro, pero el nombre del argumento (si existe) utilizado en el código de llamada no tiene que ser el mismo que el parámetro con nombre definido en el método.
+
+````C#
+public void Caller() {
+    int numA = 4;
+    // Call with an int variable.
+    int productA = Square(numA);
+
+    int numB = 32;
+    // Call with another int variable.
+    int productB = Square(numB);
+
+    // Call with an integer literal.
+    int productC = Square(12);
+
+    // Call with an expression that evaluates to int.
+    productC = Square(productA * 3);
+}
+
+int Square(int i) {
+    // Store input argument in a local variable.
+    int input = i;
+    return input * input;
+}
+````
+
+### Pasar por referencia frente a pasar por valor
+
+Cuando se pasa un objeto de un tipo de referencia a un método, se pasa una referencia al objeto. Es decir, el método no recibe el objeto concreto, recibe un argumento que indica la ubicación del objeto. Si cambia un miembro del objeto mediante esta referencia, el cambio se refleja en el argumento del método de llamada, incluso si pasa el objeto por valor.
+
+### Retorno de valores
+
+Los métodos pueden devolver un valor al autor de llamada. Si el tipo de valor devuelto (el tipo que aparece antes del nombre de método) no es void, el método puede devolver el valor mediante la instrucción return. Una instrucción con la palabra clave return seguida de un valor que coincide con el tipo de valor devuelto devolverá este valor al autor de llamada del método.
+
+El valor se puede devolver al autor de la llamada por valor o por referencia. Los valores se devuelven al autor de la llamada mediante referencia si la palabra clave ref se usa en la firma del método y sigue cada palabra clave return. Por ejemplo, la siguiente firma del método y la instrucción return indican que el método devuelve una variable denominada estDistance mediante referencia al autor de la llamada.
+
+````C#
+public ref double GetEstimatedDistance() {
+    return ref estDistance;
+}
+````
+
+La palabra clave return también detiene la ejecución del método. Si el tipo de valor devuelto es void, una instrucción return sin un valor también es útil para detener la ejecución del método. Sin la palabra clave return , el método dejará de ejecutarse cuando alcance el final del bloque de código. Los métodos con un tipo de valor devuelto no nulo son necesarios para usar la palabra clave return para devolver un valor.
+
+## Estructura de datos básica
+
+### Matrices
+
+Puede almacenar varias variables del mismo tipo en una estructura de datos de matriz. Puede declarar una matriz mediante la especificación del tipo de sus elementos.
+
+````C#
+type[] arrayName;
+````
+
+#### Propiedades de las matrices
+
+- Una matriz puede ser unidimensional, multidimensional o escalonada.
+- El número de dimensiones se establece cuando se declara una variable de la matriz. La longitud de cada dimensión se establece cuando se crea la instancia de la matriz. No se pueden cambiar estos valores durante la vigencia de la instancia.
+- Una matriz escalonada es una matriz de matrices y cada matriz miembro tiene el valor predeterminado de **null**.
+- Las matrices se indexan con cero: una matriz con **n** elementos se indexa de **0** a **n-1**.
+- Los elementos de una matriz puede ser cualquier tipo, incluido un tipo de matriz.
+- Los tipos de matriz son tipos de referencia que proceden del tipo base abstracto Array. Todas las matrices implementan IList y IEnumerable. Puede usar la instrucción foreach para recorrer en iteración una matriz. Las matrices de dimensión única también implementan IList\<T> y IEnumerable\<T>.
+
+````C#
+// Declare a single-dimensional array of 5 integers.
+int[] array1 = new int[5];
+
+// Declare and set array element values.
+int[] array2 = [1, 2, 3, 4, 5, 6];
+
+// Declare a two dimensional array.
+int[,] multiDimensionalArray1 = new int[2, 3];
+
+// Declare and set array element values.
+int[,] multiDimensionalArray2 = { { 1, 2, 3 }, { 4, 5, 6 } };
+
+// Declare a jagged array.
+int[][] jaggedArray = new int[6][];
+
+// Set the values of the first array in the jagged array structure.
+jaggedArray[0] = [1, 2, 3, 4];
+````
+
+### Listas
+
+Las colecciones proporcionan una manera flexible de trabajar con grupos de objetos. Puede clasificar las distintas colecciones en función de estas características:
+
+- Acceso a elementos: cada colección se puede enumerar para acceder a cada elemento en orden. Algunas colecciones acceden a elementos mediante el índice, la posición del elemento en una colección ordenada. El ejemplo más común es System.Collections.Generic.List\<T>. Otras colecciones acceden a los elementos mediante la clave, donde un valor está asociado a una sola clave. El ejemplo más común es System.Collections.Generic.Dictionary\<TKey,TValue>. Elige entre estos tipos de colección en función de cómo la aplicación accede a los elementos.
+- Perfil de rendimiento: cada colección tiene perfiles de rendimiento diferentes para acciones como agregar un elemento, buscar un elemento o quitar un elemento. Puede elegir un tipo de colección en función de las operaciones que se usan más en la aplicación.
+- Aumentar y reducir dinámicamente: la mayoría de las colecciones admiten la adición o eliminación de elementos de forma dinámica. En particular, Array, System.Span\<T> y System.Memory\<T> no lo hacen.
+
+````C#
+// Create a list of strings by using a
+// collection initializer.
+List<string> salmons = ["chinook", "coho", "pink", "sockeye"];
+
+// Iterate through the list.
+foreach (var salmon in salmons)
+{
+    Console.Write(salmon + " ");
+}
+// Output: chinook coho pink sockeye
+
+// Remove an element from the list by specifying
+// the object.
+salmons.Remove("coho");
+
+
+// Iterate using the index:
+for (var index = 0; index < salmons.Count; index++)
+{
+    Console.Write(salmons[index] + " ");
+}
+// Output: chinook pink sockeye
+
+// Add the removed element
+salmons.Add("coho");
+// Iterate through the list.
+foreach (var salmon in salmons)
+{
+    Console.Write(salmon + " ");
+}
+// Output: chinook pink sockeye coho
+````
+
+### Diccionarios
+
+Una colección de diccionarios permite acceder a los elementos de la colección mediante la clave de cada elemento. Cada adición al diccionario consta de un valor y de su clave asociada. En el ejemplo siguiente se crea una colección Dictionary y se recorre en iteración el diccionario usando una instrucción foreach.
+
+````C#
+private static void IterateThruDictionary() {
+    Dictionary<string, Element> elements = BuildDictionary();
+
+    foreach (KeyValuePair<string, Element> kvp in elements) {
+        Element theElement = kvp.Value;
+
+        Console.WriteLine("key: " + kvp.Key);
+        Console.WriteLine("values: " + theElement.Symbol + " " +
+            theElement.Name + " " + theElement.AtomicNumber);
+    }
+}
+
+public class Element {
+    public required string Symbol { get; init; }
+    public required string Name { get; init; }
+    public required int AtomicNumber { get; init; }
+}
+
+private static Dictionary<string, Element> BuildDictionary() => new () {
+    { "K", new (){ Symbol="K", Name="Potassium", AtomicNumber=19 } },
+    { "Ca", new (){ Symbol="Ca", Name="Calcium", AtomicNumber=20 } },
+    { "Sc", new (){ Symbol="Sc", Name="Scandium", AtomicNumber=21 } },
+    { "Ti", new (){ Symbol="Ti", Name="Titanium", AtomicNumber=22 } }
+};
 ````
