@@ -426,13 +426,13 @@ foreach (int element in fibNumbers) {
 
 ## Funciones y métodos
 
-Un método es un bloque de código que contiene una serie de instrucciones. Un programa hace que se ejecuten las instrucciones al llamar al método y especificando los argumentos de método necesarios. En C#, todas las instrucciones ejecutadas se realizan en el contexto de un método.
+ Un método es un bloque de código que contiene una serie de instrucciones. Un programa hace que se ejecuten las instrucciones al llamar al método y especificando los argumentos de método necesarios. En C#, todas las instrucciones ejecutadas se realizan en el contexto de un método.
 
 ### Declaración y llamada de funciones
 
-Los métodos se declaran en una clase, struct o interfaz especificando el nivel de acceso, como public o private, modificadores opcionales como abstract o sealed, el valor devuelto, el nombre del método y cualquier parámetro de método. Todas estas partes forman la firma del método.
+ Los métodos se declaran en una clase, struct o interfaz especificando el nivel de acceso, como public o private, modificadores opcionales como abstract o sealed, el valor devuelto, el nombre del método y cualquier parámetro de método. Todas estas partes forman la firma del método.
 
-Los parámetros de método se encierran entre paréntesis y se separan por comas. Los paréntesis vacíos indican que el método no requiere parámetros.
+ Los parámetros de método se encierran entre paréntesis y se separan por comas. Los paréntesis vacíos indican que el método no requiere parámetros.
 
 ````C#
 abstract class Motorcycle {
@@ -452,7 +452,7 @@ abstract class Motorcycle {
 
 ### Parámetros y argumentos
 
-La definición del método especifica los nombres y tipos de todos los parámetros necesarios. Si el código de llamada llama al métodos, proporciona valores concretos denominados argumentos para cada parámetro. Los argumentos deben ser compatibles con el tipo de parámetro, pero el nombre del argumento (si existe) utilizado en el código de llamada no tiene que ser el mismo que el parámetro con nombre definido en el método.
+ La definición del método especifica los nombres y tipos de todos los parámetros necesarios. Si el código de llamada llama al métodos, proporciona valores concretos denominados argumentos para cada parámetro. Los argumentos deben ser compatibles con el tipo de parámetro, pero el nombre del argumento (si existe) utilizado en el código de llamada no tiene que ser el mismo que el parámetro con nombre definido en el método.
 
 ````C#
 public void Caller() {
@@ -480,13 +480,13 @@ int Square(int i) {
 
 ### Pasar por referencia frente a pasar por valor
 
-Cuando se pasa un objeto de un tipo de referencia a un método, se pasa una referencia al objeto. Es decir, el método no recibe el objeto concreto, recibe un argumento que indica la ubicación del objeto. Si cambia un miembro del objeto mediante esta referencia, el cambio se refleja en el argumento del método de llamada, incluso si pasa el objeto por valor.
+ Cuando se pasa un objeto de un tipo de referencia a un método, se pasa una referencia al objeto. Es decir, el método no recibe el objeto concreto, recibe un argumento que indica la ubicación del objeto. Si cambia un miembro del objeto mediante esta referencia, el cambio se refleja en el argumento del método de llamada, incluso si pasa el objeto por valor.
 
 ### Retorno de valores
 
-Los métodos pueden devolver un valor al autor de llamada. Si el tipo de valor devuelto (el tipo que aparece antes del nombre de método) no es void, el método puede devolver el valor mediante la instrucción return. Una instrucción con la palabra clave return seguida de un valor que coincide con el tipo de valor devuelto devolverá este valor al autor de llamada del método.
+ Los métodos pueden devolver un valor al autor de llamada. Si el tipo de valor devuelto (el tipo que aparece antes del nombre de método) no es void, el método puede devolver el valor mediante la instrucción return. Una instrucción con la palabra clave return seguida de un valor que coincide con el tipo de valor devuelto devolverá este valor al autor de llamada del método.
 
-El valor se puede devolver al autor de la llamada por valor o por referencia. Los valores se devuelven al autor de la llamada mediante referencia si la palabra clave ref se usa en la firma del método y sigue cada palabra clave return. Por ejemplo, la siguiente firma del método y la instrucción return indican que el método devuelve una variable denominada estDistance mediante referencia al autor de la llamada.
+ El valor se puede devolver al autor de la llamada por valor o por referencia. Los valores se devuelven al autor de la llamada mediante referencia si la palabra clave ref se usa en la firma del método y sigue cada palabra clave return. Por ejemplo, la siguiente firma del método y la instrucción return indican que el método devuelve una variable denominada estDistance mediante referencia al autor de la llamada.
 
 ````C#
 public ref double GetEstimatedDistance() {
@@ -494,13 +494,13 @@ public ref double GetEstimatedDistance() {
 }
 ````
 
-La palabra clave return también detiene la ejecución del método. Si el tipo de valor devuelto es void, una instrucción return sin un valor también es útil para detener la ejecución del método. Sin la palabra clave return , el método dejará de ejecutarse cuando alcance el final del bloque de código. Los métodos con un tipo de valor devuelto no nulo son necesarios para usar la palabra clave return para devolver un valor.
+ La palabra clave return también detiene la ejecución del método. Si el tipo de valor devuelto es void, una instrucción return sin un valor también es útil para detener la ejecución del método. Sin la palabra clave return , el método dejará de ejecutarse cuando alcance el final del bloque de código. Los métodos con un tipo de valor devuelto no nulo son necesarios para usar la palabra clave return para devolver un valor.
 
 ## Estructura de datos básica
 
 ### Matrices
 
-Puede almacenar varias variables del mismo tipo en una estructura de datos de matriz. Puede declarar una matriz mediante la especificación del tipo de sus elementos.
+ Puede almacenar varias variables del mismo tipo en una estructura de datos de matriz. Puede declarar una matriz mediante la especificación del tipo de sus elementos.
 
 ````C#
 type[] arrayName;
@@ -537,7 +537,7 @@ jaggedArray[0] = [1, 2, 3, 4];
 
 ### Listas
 
-Las colecciones proporcionan una manera flexible de trabajar con grupos de objetos. Puede clasificar las distintas colecciones en función de estas características:
+ Las colecciones proporcionan una manera flexible de trabajar con grupos de objetos. Puede clasificar las distintas colecciones en función de estas características:
 
 - Acceso a elementos: cada colección se puede enumerar para acceder a cada elemento en orden. Algunas colecciones acceden a elementos mediante el índice, la posición del elemento en una colección ordenada. El ejemplo más común es System.Collections.Generic.List\<T>. Otras colecciones acceden a los elementos mediante la clave, donde un valor está asociado a una sola clave. El ejemplo más común es System.Collections.Generic.Dictionary\<TKey,TValue>. Elige entre estos tipos de colección en función de cómo la aplicación accede a los elementos.
 - Perfil de rendimiento: cada colección tiene perfiles de rendimiento diferentes para acciones como agregar un elemento, buscar un elemento o quitar un elemento. Puede elegir un tipo de colección en función de las operaciones que se usan más en la aplicación.
@@ -579,7 +579,7 @@ foreach (var salmon in salmons)
 
 ### Diccionarios
 
-Una colección de diccionarios permite acceder a los elementos de la colección mediante la clave de cada elemento. Cada adición al diccionario consta de un valor y de su clave asociada. En el ejemplo siguiente se crea una colección Dictionary y se recorre en iteración el diccionario usando una instrucción foreach.
+ Una colección de diccionarios permite acceder a los elementos de la colección mediante la clave de cada elemento. Cada adición al diccionario consta de un valor y de su clave asociada. En el ejemplo siguiente se crea una colección Dictionary y se recorre en iteración el diccionario usando una instrucción foreach.
 
 ````C#
 private static void IterateThruDictionary() {
@@ -606,4 +606,288 @@ private static Dictionary<string, Element> BuildDictionary() => new () {
     { "Sc", new (){ Symbol="Sc", Name="Scandium", AtomicNumber=21 } },
     { "Ti", new (){ Symbol="Ti", Name="Titanium", AtomicNumber=22 } }
 };
+````
+
+## Programación Orientada a Objetos (POO)
+
+### Clases y objetos
+
+#### Declarar clases
+
+ Las clases se declaran mediante la palabra clave class seguida por un identificador único.
+
+````C#
+//[access modifier] - [class] - [identifier]
+public class Customer {
+   // Fields, properties, methods and events go here...
+}
+````
+
+ Un modificador de acceso opcional precede a la palabra clave class. Como en este caso se usa public, cualquier usuario puede crear instancias de esta clase. El nombre de la clase sigue a la palabra clave class. El nombre de la clase debe ser un nombre de identificador de C# válido. El resto de la definición es el cuerpo de la clase, donde se definen los datos y el comportamiento. Los campos, las propiedades, los métodos y los eventos de una clase se denominan de manera colectiva miembros de clase.
+
+#### Creación de objetos
+
+ Aunque a veces se usan indistintamente, una clase y un objeto son cosas diferentes. Una clase define un tipo de objeto, pero no es un objeto en sí. Un objeto es una entidad concreta basada en una clase y, a veces, se conoce como una instancia de una clase. Se pueden crear objetos usando la palabra clave **new** seguida del nombre de la clase.
+
+````C#
+Customer object1 = new Customer();
+````
+
+### Herencia
+
+ La herencia, junto con la encapsulación y el polimorfismo, es una de las tres características principales de la programación orientada a objetos. La herencia permite crear clases que reutilizan, extienden y modifican el comportamiento definido en otras clases. La clase cuyos miembros se heredan se denomina clase base y la clase que hereda esos miembros se denomina clase derivada. Una clase derivada solo puede tener una clase base directa, pero la herencia es transitiva. Si ClassC se deriva de ClassB y ClassB se deriva de ClassA, ClassC hereda los miembros declarados en ClassB y ClassA.
+
+ En la ilustración siguiente se muestra una clase WorkItem que representa un elemento de trabajo de un proceso empresarial. Como con todas las clases, se deriva de System.Object y hereda todos sus métodos. WorkItem agrega seis miembros propios. Estos miembros incluyen un constructor, porque los constructores no se heredan. La clase ChangeRequest hereda de WorkItem y representa un tipo concreto de elemento de trabajo. ChangeRequest agrega dos miembros más a los miembros que hereda de WorkItem y de Object. Debe agregar su propio constructor y además agrega originalItemID. La propiedad originalItemID permite que la instancia ChangeRequest se asocie con el WorkItem original al que se aplica la solicitud de cambio.
+
+ ![class-diagram-inherit](https://learn.microsoft.com/es-es/dotnet/csharp/fundamentals/object-oriented/media/inheritance/class-inheritance-diagram.png)
+
+ En el ejemplo siguiente se muestra cómo se expresan en C# las relaciones de clase de la ilustración anterior. En el ejemplo también se muestra cómo WorkItem reemplaza el método virtual Object.ToString y cómo la clase ChangeRequest hereda la implementación WorkItem del método.
+
+````C#
+// WorkItem implicitly inherits from the Object class.
+public class WorkItem {
+    // Static field currentID stores the job ID of the last WorkItem that
+    // has been created.
+    private static int currentID;
+
+    //Properties.
+    protected int ID { get; set; }
+    protected string Title { get; set; }
+    protected string Description { get; set; }
+    protected TimeSpan jobLength { get; set; }
+
+    // Default constructor. If a derived class does not invoke a base-
+    // class constructor explicitly, the default constructor is called
+    // implicitly.
+    public WorkItem() {
+        ID = 0;
+        Title = "Default title";
+        Description = "Default description.";
+        jobLength = new TimeSpan();
+    }
+
+    // Instance constructor that has three parameters.
+    public WorkItem(string title, string desc, TimeSpan joblen) {
+        this.ID = GetNextID();
+        this.Title = title;
+        this.Description = desc;
+        this.jobLength = joblen;
+    }
+
+    // Static constructor to initialize the static member, currentID. This
+    // constructor is called one time, automatically, before any instance
+    // of WorkItem or ChangeRequest is created, or currentID is referenced.
+    static WorkItem() => currentID = 0;
+
+    // currentID is a static field. It is incremented each time a new
+    // instance of WorkItem is created.
+    protected int GetNextID() => ++currentID;
+
+    // Method Update enables you to update the title and job length of an
+    // existing WorkItem object.
+    public void Update(string title, TimeSpan joblen)
+    {
+        this.Title = title;
+        this.jobLength = joblen;
+    }
+
+    // Virtual method override of the ToString method that is inherited
+    // from System.Object.
+    public override string ToString() =>
+        $"{this.ID} - {this.Title}";
+}
+
+// ChangeRequest derives from WorkItem and adds a property (originalItemID)
+// and two constructors.
+public class ChangeRequest : WorkItem
+{
+    protected int originalItemID { get; set; }
+
+    // Constructors. Because neither constructor calls a base-class
+    // constructor explicitly, the default constructor in the base class
+    // is called implicitly. The base class must contain a default
+    // constructor.
+
+    // Default constructor for the derived class.
+    public ChangeRequest() { }
+
+    // Instance constructor that has four parameters.
+    public ChangeRequest(string title, string desc, TimeSpan jobLen, int originalID) {
+        // The following properties and the GetNexID method are inherited
+        // from WorkItem.
+        this.ID = GetNextID();
+        this.Title = title;
+        this.Description = desc;
+        this.jobLength = jobLen;
+
+        // Property originalItemID is a member of ChangeRequest, but not
+        // of WorkItem.
+        this.originalItemID = originalID;
+    }
+}
+````
+
+ En el bloque siguiente se muestra cómo usar las clases base y derivadas:
+
+````C#
+// Create an instance of WorkItem by using the constructor in the
+// base class that takes three arguments.
+WorkItem item = new WorkItem("Fix Bugs", "Fix all bugs in my code branch", new TimeSpan(3, 4, 0, 0));
+
+// Create an instance of ChangeRequest by using the constructor in
+// the derived class that takes four arguments.
+ChangeRequest change = new ChangeRequest("Change Base Class Design", "Add members to the class", new TimeSpan(4, 0, 0), 1);
+
+// Use the ToString method defined in WorkItem.
+Console.WriteLine(item.ToString());
+
+// Use the inherited Update method to change the title of the
+// ChangeRequest object.
+change.Update("Change the Design of the Base Class", new TimeSpan(4, 0, 0));
+
+// ChangeRequest inherits WorkItem's override of ToString.
+Console.WriteLine(change.ToString());
+/* Output:
+    1 - Fix Bugs
+    2 - Change the Design of the Base Class
+*/
+````
+
+### Encapsulamiento
+
+ La encapsulacion esta implementada por modificadores de acceso y estos seran los encargados de definir el rango y la visibilidad de los miembros de la clase.
+
+- public: permitira exponer todos los miembros que definamos de esta manera, estos pueden ser tanto metodos (funciones) como propiedades (variables) dentro de las clases y las mismas podran ser accedidas desde afuera de la misma.
+- private: permite a una clase hacer todo lo contrario a la anterior, es decir que permite denegar el acceso a las propiedades y metodos desde otros objetos o clases, y estos elementos solo pueden ser accedidos por miembros dentro de la misma clase, inclusive una instancia de la misma clase no podria acceder.
+- protected: es mas utilizado para cuando tenemos clases heredadas, dado que trabaja como public para las clase hijas de la clase base y como private para las clases externas a la misma.
+- internal: es el predeterminado cuando no informamos ninguno, este nos permite al igual que public exponer todos los metodos y propiedades de la clase dentro del mismo ensamblado (assembly), es decir que todas las clases podran tener acceso siempre y cuando esten dentro del mismo ensamblado.
+- protected internal: es una mezcla entre el internal y el protected, porque ocultara a los miembros a las clases externas de esta pero si le permitira el acceso a las hijas de la clase base.
+
+### Abstraccíón
+
+#### Clases base abstractas
+
+ Puede declarar una clase como abstracta si quiere impedir la creación directa de instancias mediante el operador new. Una clase abstracta solo se puede usar si a partir de ella se deriva una clase nueva. Una clase abstracta puede contener una o más firmas de método que, a su vez, se declaran como abstractas. Estas firmas especifican los parámetros y el valor devuelto, pero no tienen ninguna implementación (cuerpo del método). Una clase abstracta no tiene que contener miembros abstractos, pero si lo hace, la clase se debe declarar como abstracta. Las clases derivadas que no son abstractas deben proporcionar la implementación para todos los métodos abstractos de una clase base abstracta.
+
+ Las clases se pueden declarar como abstractas si se incluye la palabra clave abstract antes de la definición de clase.
+
+````C#
+public abstract class A {
+    // Class members here.
+}
+````
+
+Las clases abstractas también pueden definir métodos abstractos. Esto se consigue agregando la palabra clave abstract antes del tipo de valor que devuelve el método.
+
+````C#
+public abstract class A {
+    public abstract void DoWork(int i);
+}
+````
+
+#### Interfaces
+
+ Una interfaz es un tipo de referencia que define un conjunto de miembros. Todas las clases y estructuras que implementan esa interfaz deben implementar ese conjunto de miembros. Una interfaz puede definir una implementación predeterminada para todos o ninguno de estos miembros. Una clase puede implementar varias interfaces, aunque solo puede derivar de una única clase base directa.
+
+````C#
+interface ISampleInterface {
+    void SampleMethod();
+}
+
+class ImplementationClass : ISampleInterface {
+    // Explicit interface member implementation:
+    void ISampleInterface.SampleMethod() {
+        // Method implementation.
+    }
+
+    static void Main() {
+        // Declare an interface instance.
+        ISampleInterface obj = new ImplementationClass();
+
+        // Call the member.
+        obj.SampleMethod();
+    }
+}
+````
+
+### Polimorfismo
+
+El polimorfismo suele considerarse el tercer pilar de la programación orientada a objetos, después de la encapsulación y la herencia. Polimorfismo es una palabra griega que significa "con muchas formas" y tiene dos aspectos diferentes:
+
+- En tiempo de ejecución, los objetos de una clase derivada pueden ser tratados como objetos de una clase base en lugares como parámetros de métodos y colecciones o matrices. Cuando se produce este polimorfismo, el tipo declarado del objeto ya no es idéntico a su tipo en tiempo de ejecución.
+- Las clases base pueden definir e implementar métodosvirtuales, y las clases derivadas pueden invalidarlos, lo que significa que pueden proporcionar su propia definición e implementación. En tiempo de ejecución, cuando el código de cliente llama al método, CLR busca el tipo en tiempo de ejecución del objeto e invoca esa invalidación del método virtual. En el código fuente puede llamar a un método en una clase base y hacer que se ejecute una versión del método de la clase derivada.
+
+Los métodos virtuales permiten trabajar con grupos de objetos relacionados de manera uniforme. Por ejemplo, supongamos que tiene una aplicación de dibujo que permite a un usuario crear varios tipos de formas en una superficie de dibujo. En tiempo de compilación, no sabe qué tipos de formas en concreto creará el usuario. Sin embargo, la aplicación tiene que realizar el seguimiento de los distintos tipos de formas que se crean, y tiene que actualizarlos en respuesta a las acciones del mouse del usuario. Para solucionar este problema en dos pasos básicos, puede usar el polimorfismo:
+
+1. Crear una jerarquía de clases en la que cada clase de forma específica deriva de una clase base común.
+2. Usar un método virtual para invocar el método apropiado en una clase derivada mediante una sola llamada al método de la clase base.
+
+Primero, cree una clase base llamada Shape y clases derivadas como Rectangle, Circle y Triangle. Dé a la clase Shape un método virtual llamado Draw e invalídelo en cada clase derivada para dibujar la forma determinada que la clase representa. Cree un objeto List\<Shape> y agréguele una instancia de Circle, Triangle y Rectangle.
+
+````C#
+public class Shape {
+    // A few example members
+    public int X { get; private set; }
+    public int Y { get; private set; }
+    public int Height { get; set; }
+    public int Width { get; set; }
+
+    // Virtual method
+    public virtual void Draw() {
+        Console.WriteLine("Performing base class drawing tasks");
+    }
+}
+
+public class Circle : Shape {
+    public override void Draw() {
+        // Code to draw a circle...
+        Console.WriteLine("Drawing a circle");
+        base.Draw();
+    }
+}
+public class Rectangle : Shape
+{
+    public override void Draw() {
+        // Code to draw a rectangle...
+        Console.WriteLine("Drawing a rectangle");
+        base.Draw();
+    }
+}
+public class Triangle : Shape
+{
+    public override void Draw() {
+        // Code to draw a triangle...
+        Console.WriteLine("Drawing a triangle");
+        base.Draw();
+    }
+}
+````
+
+ Para actualizar la superficie de dibujo, use un bucle foreach para iterar por la lista y llamar al método Draw en cada objeto Shape de la lista. Aunque cada objeto de la lista tenga un tipo declarado de Shape, se invocará el tipo en tiempo de ejecución (la versión invalidada del método en cada clase derivada).
+
+````C#
+// Polymorphism at work #1: a Rectangle, Triangle and Circle
+// can all be used wherever a Shape is expected. No cast is
+// required because an implicit conversion exists from a derived
+// class to its base class.
+var shapes = new List<Shape> {
+    new Rectangle(),
+    new Triangle(),
+    new Circle()
+};
+
+// Polymorphism at work #2: the virtual method Draw is
+// invoked on each of the derived classes, not the base class.
+foreach (var shape in shapes) {
+    shape.Draw();
+}
+
+/* Output:
+    Drawing a rectangle
+    Performing base class drawing tasks
+    Drawing a triangle
+    Performing base class drawing tasks
+    Drawing a circle
+    Performing base class drawing tasks
+*/
 ````
